@@ -3,6 +3,9 @@
 ;; Golang
 (use-package go-mode)
 (use-package gotest)
+(use-package go-ts-mode
+  :custom
+  (go-ts-mode-indent-offset 2))
 
 ;; Javascript
 (use-package js
@@ -75,7 +78,7 @@
 
 (use-package treesit-auto
   :config
-  (setq treesit-auto-install t)
+  (setq treesit-auto-install 'prompt)
   (global-treesit-auto-mode))
 
 (use-package dumb-jump
@@ -102,5 +105,6 @@
           (concat "  |  " (propertize oneline 'face 'italic)))))))
 
 (use-package swift-mode)
+(use-package eros)
 
 (provide 'init-ide)

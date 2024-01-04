@@ -28,7 +28,8 @@
 (add-to-list 'default-frame-alist '(height . 100))
 (add-to-list 'default-frame-alist '(width . 240))
 
-(setq tool-bar-mode nil
+(setq menu-bar-mode nil
+      tool-bar-mode nil
       scroll-bar-mode nil
       inhibit-startup-screen t
       inhibit-startup-message t
@@ -43,4 +44,4 @@
       ns-use-proxy-icon nil)
 
 ;; Load theme
-(load-theme 'deeper-blue t)
+(load-theme 'modus-vivendi t)

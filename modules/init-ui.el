@@ -91,6 +91,12 @@
 (use-package breadcrumb
   :vc (:fetcher github :repo joaotavora/breadcrumb))
 
+(use-package spacious-padding)
+
+(use-package window-stool
+  :vc (:fetcher github :repo jaszhe/window-stool))
+
+(use-package mixed-pitch)
 ;; Enable ligatures
 (use-package ligature
   :hook (prog-mode . ligature-mode)

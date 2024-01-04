@@ -97,6 +97,26 @@
   :vc (:fetcher github :repo jaszhe/window-stool))
 
 (use-package mixed-pitch)
+
+;; Try out Monaspace font with textual healing
+;; https://github.com/mickeynp/ligature.el/issues/53#issuecomment-1828732077
+;; set safe composition table that works in all modes:
+(set-char-table-range composition-function-table t `(["[,-.;A-Z_a-z]+" 0 font-shape-gstring]))
+
+;; creates and sets a buffer local composition table to value
+(defun set-buffer-local-composition-table (value)
+  (let ((table (make-char-table nil)))
+    (set-char-table-range table t `([,value 0 font-shape-gstring]))
+    (set-char-table-parent table composition-function-table)
+    (setq-local composition-function-table table)))
+
+;; sets prog-mode composition table - includes programming ligatures
+(defun set-prog-mode-table ()
+  (set-buffer-local-composition-table "[-.,:;A-Z_a-z><=!&|+?/\\]+"))
+
+;; Turn on ligatures in all programming modes:
+(add-hook 'prog-mode-hook #'set-prog-mode-table)
+
 ;; Enable ligatures
 (use-package ligature
   :hook (prog-mode . ligature-mode)
@@ -117,11 +137,15 @@
           (lambda ()
             (custom-set-faces
              ;;`(default ((t (:font "Iosevka Comfy 18"))))
-             `(default ((t (:font "JetBrainsMono NF 18"))))
+             ;;`(default ((t (:font "JetBrainsMono NF 18"))))
+             `(default ((t (:font "MonaspiceAr Nerd Font 18"))))
+             ;;`(default ((t (:font "CommitMono 18"))))
              ;;`(default ((t (:font "Monaspace Neon" :foundry "nil" :slant normal :weight normal :height 150 :width normal))))
              `(fixed-pitch ((t (:inherit (default)))))
              `(fixed-pitch-serif ((t (:inherit (default)))))
-             ;; `(variable-pitch ((t (:font "Monaspace Neon Var 16"))))
-             `(variable-pitch ((t (:font "Iosevka Comfy 16")))))))
+             ;;`(variable-pitch ((t (:font "Monaspace Neon Var 16"))))
+             ;;`(variable-pitch ((t (:font "Iosevka Aile 16"))))
+             `(variable-pitch ((t (:font "Iosevka Etoile 16"))))
+             )))
 
 (provide 'init-ui)

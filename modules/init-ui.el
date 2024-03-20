@@ -138,7 +138,7 @@
             (custom-set-faces
              ;;`(default ((t (:font "Iosevka Comfy 18"))))
              ;;`(default ((t (:font "JetBrainsMono NF 18"))))
-             `(default ((t (:font "MonaspiceAr Nerd Font 18"))))
+             `(default ((t (:font "MonaspiceNe Nerd Font 18"))))
              ;;`(default ((t (:font "CommitMono 18"))))
              ;;`(default ((t (:font "Monaspace Neon" :foundry "nil" :slant normal :weight normal :height 150 :width normal))))
              `(fixed-pitch ((t (:inherit (default)))))

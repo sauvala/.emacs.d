@@ -20,6 +20,9 @@
   :init
   (vertico-mode))
 
+(use-package vertico-posframe
+  :after vertico)
+
 (use-package marginalia
   :after vertico
   ;; :custom

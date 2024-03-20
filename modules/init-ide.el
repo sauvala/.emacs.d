@@ -32,7 +32,15 @@
   :bind
   (("M-." . xref-find-definitions))
   :custom
-  (eglot-connect-timeout 10)
+  (eglot-connect-timeout nil)
+  (eglot-sync-connect nil)
+  (eglot-autoshutdown t)
+  (eglot-send-changes-idle-time 3)
+  (flymake-no-changes-timeout 5)
+  (eldoc-echo-area-use-multiline-p nil)
+  (fset #'jsonrpc--log-event #'ignore)
+  (eglot-events-buffer-size 0)
+  ;(eglot-ignored-server-capabilites '(:documentHighlightProvider))
   :config
   (setq eglot-workspace-configuration
         '((:gopls . (:usePlaceholders t))
@@ -47,6 +55,12 @@
                :compositeLiteralTypes t
                :constantValues t)))))
   (add-hook 'eglot-managed-mode-hook #'eglot-inlay-hints-mode))
+
+(use-package eglot-booster
+  :after eglot
+  :vc (:fetcher github :repo jdtsmith/eglot-booster)
+  :config
+  (eglot-booster-mode))
 
 ;; childframe doc for eglot and anything that uses eldoc
 (use-package eldoc-box)

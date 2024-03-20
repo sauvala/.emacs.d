@@ -7,8 +7,10 @@
   (customize-set-variable 'ns-function-modifier 'hyper))
 
 (when (featurep 'mac)
-  (customize-set-variable 'mac-option-modifier 'meta)
+  ;;(customize-set-variable 'mac-option-modifier 'meta)
   (customize-set-variable 'mac-function-modifier '(:button 2))
   (mac-auto-operator-composition-mode +1))
+
+(customize-set-variable 'ns-right-option-modifier 'meta)
 
 (provide 'init-macos)

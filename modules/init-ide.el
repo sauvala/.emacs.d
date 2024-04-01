@@ -58,7 +58,8 @@
 
 (use-package eglot-booster
   :after eglot
-  :vc (:fetcher github :repo jdtsmith/eglot-booster)
+  :vc (:url "https://github.com/jdtsmith/eglot-booster.git"
+       :rev :newest)
   :config
   (eglot-booster-mode))
 

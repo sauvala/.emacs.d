@@ -70,10 +70,6 @@
 
 (use-package catppuccin-theme)
 
-(use-package os1-theme
-  :vc (:fetcher github :repo sashimacs/os1-theme)
-  :defer 3)
-
 (use-package nerd-icons)
 
 (use-package nerd-icons-completion
@@ -88,13 +84,12 @@
 
 (use-package transpose-frame)
 
-(use-package breadcrumb
-  :vc (:fetcher github :repo joaotavora/breadcrumb))
+(use-package breadcrumb)
 
 (use-package spacious-padding)
 
-(use-package window-stool
-  :vc (:fetcher github :repo jaszhe/window-stool))
+;;(use-package window-stool
+;;  :vc (:url "https://github.com/JasZhe/window-stool.git"))
 
 (use-package mixed-pitch)
 
@@ -137,8 +132,8 @@
           (lambda ()
             (custom-set-faces
              ;;`(default ((t (:font "Iosevka Comfy 18"))))
-             ;;`(default ((t (:font "JetBrainsMono NF 18"))))
-             `(default ((t (:font "MonaspiceNe Nerd Font 18"))))
+             `(default ((t (:font "JetBrainsMono Nerd Font 18"))))
+             ;;`(default ((t (:font "MonaspiceAr Nerd Font 18"))))
              ;;`(default ((t (:font "CommitMono 18"))))
              ;;`(default ((t (:font "Monaspace Neon" :foundry "nil" :slant normal :weight normal :height 150 :width normal))))
              `(fixed-pitch ((t (:inherit (default)))))

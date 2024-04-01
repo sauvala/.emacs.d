@@ -152,10 +152,6 @@ targets."
          (remq #'embark-which-key-indicator embark-indicators)))
       (apply fn args)))
 
-(use-package embark-consult
-  :hook
-  (embark-collect-mode . consult-preview-at-point-mode))
-
 (use-package embark
   :bind
   (("C-." . embark-act)         ;; pick some comfortable binding
@@ -199,8 +195,14 @@ targets."
                  nil
                  (window-parameters (mode-line-format . none)))))
 
+(use-package embark-consult
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
+
 (use-package copilot
-  :vc (:fetcher github :repo zerolfx/copilot.el)
+  :vc (:url "https://github.com/copilot-emacs/copilot.el.git"
+       :branch "main"
+       :rev :newest)
   :hook (prog-mode . copilot-mode)
   :bind (:map copilot-completion-map
               ("<tab>" . 'copilot-accept-completion)

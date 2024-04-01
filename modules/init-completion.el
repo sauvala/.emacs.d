@@ -54,9 +54,9 @@
 (use-package corfu
   :defer 2
   ;; :defer 1
-  ;; :hook ((prog-mode . corfu-mode)
-  ;;        (shell-mode . corfu-mode)
-  ;;        (eshell-mode . corfu-mode))
+   :hook ((prog-mode . corfu-mode)
+          (shell-mode . corfu-mode)
+          (eshell-mode . corfu-mode))
   :bind
   (:map corfu-map
         ("C-j" . corfu-next)

@@ -81,7 +81,7 @@
         highlight-indent-guides-bitmap-function 'highlight-indent-guides--bitmap-line))
 
 (use-package indent-bars
-  :vc (:fetcher github :repo jdtsmith/indent-bars)
+  :vc (:url "https://github.com/jdtsmith/indent-bars.git")
   :config
   (setq
     indent-bars-color '(highlight :face-bg t :blend 0.3)

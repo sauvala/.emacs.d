@@ -1,4 +1,4 @@
- ;;;; init-editor.el -*- lexical-binding: t; no-byte-compile: t; -*-
+;;;; init-editor.el -*- lexical-binding: t; no-byte-compile: t; -*-
 
 ;; Set tab behaviour
 (customize-set-variable 'tab-width 2)

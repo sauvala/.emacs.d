@@ -2,6 +2,10 @@
 
 (use-package org
   :custom
-  (org-hide-emphasis-markers t))
+  (org-hide-emphasis-markers t)
+  (word-wrap t)
+  (truncate-lines nil)
+  :config
+  (visual-wrap-prefix-mode))
 
 (provide 'init-org)

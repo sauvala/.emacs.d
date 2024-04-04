@@ -11,6 +11,9 @@
 ;; Truncate lines by default
 (set-default 'truncate-lines t)
 
+;; Revert buffers automatically
+(global-auto-revert-mode)
+
 ;; Hide truncated lines indication
 (setq-default fringe-indicator-alist (assq-delete-all 'truncation fringe-indicator-alist))
 

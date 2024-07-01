@@ -3,8 +3,9 @@
 (use-package org
   :custom
   (org-hide-emphasis-markers t)
+  (visual-wrap-prefix-mode t)
+  (visual-line-mode t)
   (word-wrap t)
-  (truncate-lines nil)
   :config
   (visual-wrap-prefix-mode))
 

@@ -22,6 +22,7 @@
 (require 'init-notes)
 (require 'init-gpt)
 (require 'init-media)
+(require 'init-utils)
 
 ;; Load customization after all packages have been loaded
 (load custom-file t)

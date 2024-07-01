@@ -8,12 +8,6 @@
 (when (not (featurep 'mac))
   (pixel-scroll-precision-mode))
 
-;; Truncate lines by default
-(set-default 'truncate-lines t)
-
-;; Revert buffers automatically
-(global-auto-revert-mode)
-
 ;; Hide truncated lines indication
 (setq-default fringe-indicator-alist (assq-delete-all 'truncation fringe-indicator-alist))
 
@@ -22,6 +16,8 @@
 
 ;; Line numbers
 (column-number-mode)
+
+(global-auto-revert-mode)
 
 ;; Enable line numbers for some modes
 (dolist (mode '(text-mode-hook
@@ -88,7 +84,9 @@
         highlight-indent-guides-bitmap-function 'highlight-indent-guides--bitmap-line))
 
 (use-package indent-bars
-  :vc (:url "https://github.com/jdtsmith/indent-bars.git")
+  :vc (:url "https://github.com/jdtsmith/indent-bars.git"
+       :rev :newest
+       :branch "main")
   :config
   (setq
     indent-bars-color '(highlight :face-bg t :blend 0.3)

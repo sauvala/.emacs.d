@@ -91,6 +91,11 @@
 (use-package all-the-icons-dired
   :hook (dired-mode-hook . all-the-icons-dired-mode))
 
+(use-package dired-subtree
+  :after dired
+  :bind (:map dired-mode-map
+              ("TAB" . dired-subtree-toggle)))
+
 (use-package treesit-auto
   :config
   (setq treesit-auto-install 'prompt)

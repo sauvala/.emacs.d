@@ -14,6 +14,7 @@
 ;; Line numbers
 (column-number-mode)
 
+;; Reverts buffer associated with a file automatically
 (global-auto-revert-mode)
 
 ;; Enable line numbers for some modes

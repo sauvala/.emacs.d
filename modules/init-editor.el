@@ -33,9 +33,13 @@
 (dolist (mode '(org-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-(desktop-save-mode)
-(setq desktop-path '("~/.cache/emacs/desktop/"))
-(desktop-read)
+(use-package desktop
+  :ensure nil
+  :commands (desktop-save-mode desktop-save desktop-read)
+  :custom
+  (desktop-path '("~/.cache/emacs/desktop/"))
+  (desktop-restore-eager 5)
+  (desktop-auto-save-timeout 5))
 
 (use-package sudo-edit
   :commands sudo-edit)

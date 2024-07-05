@@ -11,6 +11,10 @@
 ;; Hide truncated lines indication
 (setq-default fringe-indicator-alist (assq-delete-all 'truncation fringe-indicator-alist))
 
+;; Hide line continuation indication
+(setq-default fringe-indicator-alist (assq-delete-all 'continuation fringe-indicator-alist))
+
+
 ;; Line numbers
 (column-number-mode)
 

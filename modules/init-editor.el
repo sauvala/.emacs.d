@@ -170,4 +170,6 @@
 
 (use-package wgrep)
 
+(use-package casual-suite)
+
 (provide 'init-editor)

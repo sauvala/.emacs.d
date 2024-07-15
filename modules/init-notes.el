@@ -50,11 +50,4 @@
 
 (use-package grip-mode)
 
-(use-package csv2ledger
-  :commands csv2ledger
-  :custom
-  ;(c2l-csv-columns '(date _ description _ amount _ _ _)) ; for bank norwegian
-  (c2l-csv-columns '(date amount description)) ; for s-pankki
-  )
-
 (provide 'init-notes)

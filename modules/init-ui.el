@@ -135,7 +135,7 @@
              ;;`(default ((t (:font "JetBrainsMono Nerd Font 15"))))
              ;;`(default ((t (:font "MonaspiceAr Nerd Font 18"))))
              ;;`(default ((t (:font "CommitMono Nerd Font 15"))))
-             `(default ((t (:font "CommitMonojanne 15"))))
+             `(default ((t (:font "CommitMono 15"))))
              ;;`(default ((t (:font "Monaspace Neon" :foundry "nil" :slant normal :weight normal :height 150 :width normal))))
              `(fixed-pitch ((t (:inherit (default)))))
              `(fixed-pitch-serif ((t (:inherit (default)))))

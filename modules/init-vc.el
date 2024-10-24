@@ -2,8 +2,6 @@
 
 (customize-set-variable 'vc-follow-symlinks t)
 
-(use-package git-commit)
-
 (use-package magit
   :after (git-commit)
   :bind ("C-x g" . magit-status)

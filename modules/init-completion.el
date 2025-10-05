@@ -47,8 +47,7 @@
   (add-to-list 'consult-dir-sources 'consult-dir--source-tramp-ssh t))
 
 (use-package which-key
-  :custom
-  (which-key-idle-delay 0.75)
+  :ensure nil
   :hook (emacs-startup . which-key-mode))
 
 (use-package corfu
@@ -200,10 +199,8 @@ targets."
   (embark-collect-mode . consult-preview-at-point-mode))
 
 (use-package copilot
-  :vc (:url "https://github.com/copilot-emacs/copilot.el.git"
-       :branch "main"
-       :rev :newest)
-  :hook (prog-mode . copilot-mode)
+  :custom
+  (copilot-max-char-warning-disable t)
   :bind (:map copilot-completion-map
               ("<tab>" . 'copilot-accept-completion)
               ("TAB" . 'copilot-accept-completion)

@@ -23,6 +23,7 @@
 
 ;; LSP
 (use-package eglot
+  :ensure nil
   :preface
   (defun js-eglot-eldoc ()
     (setq eldoc-documentation-strategy
@@ -39,7 +40,8 @@
   (flymake-no-changes-timeout 5)
   (eldoc-echo-area-use-multiline-p nil)
   (fset #'jsonrpc--log-event #'ignore)
-  (eglot-events-buffer-size 0)
+  ;(eglot-events-buffer-size 0)
+  (eglot-events-buffer-config '(:size 0 :format full))
   ;(eglot-ignored-server-capabilites '(:documentHighlightProvider))
   :config
   (setq eglot-workspace-configuration
@@ -54,6 +56,8 @@
                :compositeLiteralFields t
                :compositeLiteralTypes t
                :constantValues t)))))
+  ;(add-to-list 'eglot-server-programs
+               ;'((python-mode python-ts-mode) . ("ty" "server")))
   (add-hook 'eglot-managed-mode-hook #'eglot-inlay-hints-mode))
 
 (use-package eglot-booster
@@ -86,10 +90,6 @@
   :custom
   (dired-sidebar-width 40)
   (dired-sidebar-should-follow-file t))
-
-;; Icons for Dired and dired-sidebar
-(use-package all-the-icons-dired
-  :hook (dired-mode-hook . all-the-icons-dired-mode))
 
 (use-package dired-subtree
   :after dired
@@ -126,5 +126,12 @@
 
 (use-package swift-mode)
 (use-package eros)
+
+(use-package editorconfig
+  :ensure nil
+  :hook (prog-mode . editorconfig-mode))
+
+(use-package flymake-ruff
+  :hook (python-mode . flymake-ruff-load))
 
 (provide 'init-ide)

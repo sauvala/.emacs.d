@@ -85,19 +85,27 @@
         highlight-indent-guides-bitmap-function 'highlight-indent-guides--bitmap-line))
 
 (use-package indent-bars
-  :vc (:url "https://github.com/jdtsmith/indent-bars.git"
-       :rev :newest
-       :branch "main")
-  :config
-  (setq
-    indent-bars-color '(highlight :face-bg t :blend 0.3)
-    indent-bars-pattern "."
-    indent-bars-width-frac 0.25
-    indent-bars-pad-frac 0.1
-    indent-bars-zigzag nil
-    indent-bars-color-by-depth '(:regexp "outline-\\([0-9]+\\)" :blend 1)
-    indent-bars-highlight-current-depth '(pattern ".")
-    indent-bars-display-on-blank-lines t))
+  :hook ((python-base-mode yaml-mode) . indent-bars-mode)
+  :custom
+  (indent-bars-pattern ".")
+  (indent-bars-width-frac 0.1)
+  (indent-bars-pad-frac 0.1)
+  (indent-bars-zigzag nil)
+  (indent-bars-color-by-depth nil)
+  (indent-bars-highlight-current-depth nil)
+  (indent-bars-display-on-blank-lines nil)
+  (indent-bars-no-descend-lists t) ; no extra bars in continued func arg lists
+  (indent-bars-treesit-support t)
+  (indent-bars-treesit-ignore-blank-lines-types '("module"))
+  ;; Add other languages as needed
+  (indent-bars-treesit-scope '((python function_definition class_definition for_statement
+	  if_statement with_statement while_statement)))
+  ;; Note: wrap may not be needed if no-descend-list is enough
+  ;;(indent-bars-treesit-wrap '((python argument_list parameters ; for python, as an example
+  ;;				      list list_comprehension
+  ;;				      dictionary dictionary_comprehension
+  ;;				      parenthesized_expression subscript)))
+ )
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -171,5 +179,10 @@
 (use-package wgrep)
 
 (use-package casual-suite)
+
+(use-package eldoc-mouse
+  :vc (:url "https://github.com/huangfeiyu/eldoc-mouse"
+       :rev :newest
+       :branch "main"))
 
 (provide 'init-editor)

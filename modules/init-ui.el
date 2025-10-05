@@ -39,14 +39,9 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
-(use-package doom-modeline
-  :custom
-  (doom-modeline-height 20)
-  :hook (after-init . doom-modeline-mode))
-
 ;; Make modeline a little narrower
-(set-face-attribute 'mode-line nil :height 155)
-(set-face-attribute 'mode-line-inactive nil :height 155)
+;(set-face-attribute 'mode-line nil :height 155)
+;(set-face-attribute 'mode-line-inactive nil :height 155)
 
 (use-package mood-line
   :config
@@ -127,6 +122,16 @@
                                      "<+>" "<=" "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<"
                                      "<~" "<~~" "</" "</>" "~@" "~-" "~>" "~~" "~~>" "%%")))
 
+(use-package ultra-scroll
+  :vc (:url "https://github.com/jdtsmith/ultra-scroll.git"
+       :rev :newest)
+  :hook emacs-startup-hook
+  :init
+  (setq scroll-conservatively 101 ; important!
+        scroll-margin 0) 
+  :config
+  (ultra-scroll-mode 1))
+
 ;; Set fonts
 (add-hook 'emacs-startup-hook
           (lambda ()
@@ -134,8 +139,8 @@
              ;;`(default ((t (:font "Iosevka Comfy 18"))))
              ;;`(default ((t (:font "JetBrainsMono Nerd Font 15"))))
              ;;`(default ((t (:font "MonaspiceAr Nerd Font 18"))))
-             ;;`(default ((t (:font "CommitMono Nerd Font 15"))))
-             `(default ((t (:font "CommitMono 15"))))
+             `(default ((t (:font "CommitMono Nerd Font 15"))))
+             ;;`(default ((t (:font "CommitMono 15"))))
              ;;`(default ((t (:font "Monaspace Neon" :foundry "nil" :slant normal :weight normal :height 150 :width normal))))
              `(fixed-pitch ((t (:inherit (default)))))
              `(fixed-pitch-serif ((t (:inherit (default)))))
@@ -143,5 +148,19 @@
              ;;`(variable-pitch ((t (:font "Iosevka Aile 16"))))
              `(variable-pitch ((t (:font "Iosevka Etoile 15"))))
              )))
+
+(use-package visual-fill-column
+  :custom
+  (visual-fill-column-width 70)
+  (visual-fill-column-center-text t)
+  (visual-fill-column-fringes-outside-margins t)
+  (visual-fill-column-enable-sensible-window-split t))
+
+(use-package tomorrow-night-deepblue-theme)
+
+(use-package vim-tab-bar
+  :commands vim-tab-bar-mode
+  :hook
+  (after-init . vim-tab-bar-mode))
 
 (provide 'init-ui)

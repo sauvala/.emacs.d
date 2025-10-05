@@ -12,7 +12,7 @@
               ("M-h" . js/minibuffer-backward-kill))
   :custom
   (vertico-cycle nil)
-  :init
+  :config
   (vertico-mode))
 
 (use-package vertico-posframe

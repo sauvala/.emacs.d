@@ -134,4 +134,10 @@
 (use-package flymake-ruff
   :hook (python-mode . flymake-ruff-load))
 
+(use-package leetcode
+  :custom
+  (leetcode-prefer-language "python3")
+  (leetcode-save-solutions t)
+  (leetcode-directory "~/Documents/leetcode"))
+
 (provide 'init-ide)
